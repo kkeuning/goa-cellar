@@ -27,7 +27,7 @@ var _ = API("cellar", func() {
 	Scheme("http")
 	BasePath("/cellar")
 
-	Origin("http://swagger.goa.design", func() {
+	Origin("*", func() {
 		Methods("GET", "POST", "PUT", "PATCH", "DELETE")
 		MaxAge(600)
 		Credentials()
