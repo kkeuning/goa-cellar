@@ -181,19 +181,26 @@ var _ = Resource("bottle", func() {
 	})
 })
 
-var _ = Resource("public", func() {
-	Origin("*", func() {
-		Methods("GET", "OPTIONS")
-	})
-	Files("/ui", "public/html/index.html")
-})
-
-var _ = Resource("js", func() {
-	Origin("*", func() {
-		Methods("GET", "OPTIONS")
-	})
-	Files("/js/*filepath", "public/js")
-})
+// At goa v1.0.0 multiple Files resources will cause duplicate
+// functions in the generated cli commands.go.  This is fixed
+// in subsequent goa updates.
+//
+// Commenting out here to remain on v1.0.0 for compatibility
+// with gorma.
+//
+// var _ = Resource("public", func() {
+// 	Origin("*", func() {
+// 		Methods("GET", "OPTIONS")
+// 	})
+// 	Files("/ui", "public/html/index.html")
+// })
+//
+// var _ = Resource("js", func() {
+// 	Origin("*", func() {
+// 		Methods("GET", "OPTIONS")
+// 	})
+// 	Files("/js/*filepath", "public/js")
+// })
 
 var _ = Resource("swagger", func() {
 	Origin("*", func() {
