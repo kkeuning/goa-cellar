@@ -29,6 +29,7 @@ var _ = API("cellar", func() {
 
 	Origin("*", func() {
 		Methods("GET", "POST", "PUT", "PATCH", "DELETE")
+		Headers("content-type")
 		MaxAge(600)
 		Credentials()
 	})
